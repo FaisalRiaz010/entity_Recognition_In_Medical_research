@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign In</title>
+    <style>
+        body {
+            background-image: url({{url_for('static',filename='image/tech46-3.jpg')}});
+            background-size: cover;
+           
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 30%;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            background-color: rgba(255, 255, 255, 0.7);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            background-color: #1d1ae4;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #01030f;
+        }
+
+        .error-message {
+            color: #ff0000;
+            margin-top: 10px;
+        }
+
+        .link {
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Login</h1>
+        {% if error_message %}
+        <p class="error-message">{{ error_message }}</p>
+        {% endif %}
+        <form action="/login" method="POST">
+            <label for="username">Username:</label>
+            <input type="text" name="username" required><br>
+            <label for="password">Password:</label>
+            <input type="password" name="password" required><br>
+            <span class="link">Forgot password? <a href="/forgot_password">Forget Password</a></span> <!-- Added Forgot Password link -->
+            <input type="submit" value="Login">
+        </form>
+       
+        <span class="link">Not a member? <a href="/register">Sign Up</a></span>
+        <span class="link">Go to Home Page <a href="{{ url_for('index') }}">Back</a></span>
+        
+       
+    </div>
+
+  
+</body>
+</html>

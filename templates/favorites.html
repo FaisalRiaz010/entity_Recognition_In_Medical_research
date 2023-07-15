@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Favorite Titles</title>
+</head>
+<body>
+    <div id="favorite-box">
+        <ol>
+          {% for favorite in favorites %}
+          <li>{{ favorite.title }}</li>
+          {% endfor %}
+        </ol>
+      </div>
+      
+</body>
+</html>

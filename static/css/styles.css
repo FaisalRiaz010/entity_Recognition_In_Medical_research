@@ -1,0 +1,149 @@
+
+  header {
+   
+    padding: 1rem 0;
+  }
+ 
+ 
+ 
+  
+  .navbar-nav .nav-link {
+    font-size: 1.2rem;
+    margin-left: 1.5rem;
+    color: #032644;
+  }
+  
+  .navbar-nav .nav-link:hover {
+    color: #212529;
+  }
+  
+  /* Add hover effect to the header links */
+  .navbar-nav li.nav-item a.nav-link:hover {
+    color: #0a32b4;
+    background-color: #e8eaec;
+    border-radius: 5px;
+  }
+  .progress-bar:hover {
+    opacity: 0.6;
+    transition: opacity 0.3s ease-in-out;
+    background-color: #ff0800;
+    color: #4113e9;
+  }
+  
+  
+  .image-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .image-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    color: rgb(155, 90, 90);
+  }
+  
+.custom-heading {
+    font-family: "Montserrat", sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: rgb(6, 28, 102);
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 10px;
+   
+  }
+  .card {
+    border: 2px solid rgb(22, 7, 226);
+     background-color: transparent !important;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: white;
+    
+  }
+  
+  .card-text {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 0;
+  }
+  .container {
+    margin-top: 20px;
+    background-color: transparent;
+    border: 6px white;
+  }
+ .cards1{
+  background-color: rgba(7, 38, 139, 0.5);
+  
+    color: white;
+    border: 6px white;
+    
+    border-radius: 10px;
+ }
+  
+  .card-title {
+    font-size: 1.25rem;
+    font-weight: 500;
+  }
+  
+  .card-body {
+    padding: 1.25rem;
+    background-color: rgba(9, 11, 158, 0.7);
+  }
+  
+  #author-box {
+    height: 300px;
+    overflow-y: auto;
+    padding: 10px;
+    border: 1px solid #000000;
+  }
+  
+  #author-box {
+    margin-top: 20px;
+    padding: 20px;
+    color: white;
+    background-color: rgba(23, 27, 68, 0.932);
+    border: 2px solid #f0ebeb;
+    border-radius: 10px;
+  }
+  
+  #author-box h5 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  #author-box ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  #author-box li {
+    margin-bottom: 5px;
+  }
+  
+  #author-box a {
+    text-decoration: none;
+    color: #f8f8f8;
+  }
+  
+  #author-box a:hover {
+    color: #cc0000;
+  }
+  
+  nav{
+   
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.99), rgba(0, 0, 255, 0.86));
+  }
+ 

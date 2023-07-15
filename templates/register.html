@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Registration</title>
+    <style>
+        body {
+            background-image: url({{url_for('static',filename='image/bg.jpg')}});
+            background-size:cover;
+            backdrop-filter:blur(5px);
+        }
+       
+       
+        
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+           
+        }
+        
+      
+        
+        .form-container {
+            width: 30%;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.7);
+        }
+        
+        h2 {
+            text-align: center;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        input[type="text"],
+        input[type="password"],
+        input[type="email"],
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            padding-left: 30px;
+        }
+        
+        input[type="submit"] {
+            width: 100%;
+            background-color: #1d1ae4;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .error-message {
+            color: #ff0000;
+            margin-top: 10px;
+        }
+        
+        input[type="submit"]:hover {
+            background-color: #01030f;
+        }
+        
+        .form-field {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .icon {
+            position: absolute;
+            left: 4px;
+            top: 5px;
+            pointer-events: none;
+            transition: all 0.3s ease-in-out;
+            transform-origin: top left;
+            margin-right: 5px;
+        }
+
+        .active {
+            transform: translateY(-20px) scale(0.8);
+        }
+    </style>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+     <script>
+        function handleInputFocus(input) {
+            input.previousElementSibling.classList.add('active');
+        }
+
+        function handleInputBlur(input) {
+            if (input.value === '') {
+                input.previousElementSibling.classList.remove('active');
+            }
+        }
+    </script>
+</head>
+<body>
+        <div class="form-container">
+            <h2>User Registration</h2>
+            {% if error_message %}
+            <p class="error-message">{{ error_message }}</p>
+            {% endif %}
+            <form method="POST" action="/register">
+                <div class="form-field">
+                    <i class="icon fas fa-user"></i>
+                    <input type="text" name="username" id="username" placeholder="Username" required
+                        onfocus="handleInputFocus(this)" onblur="handleInputBlur(this)">
+                </div>
+                <div class="form-field">
+                    <i class="icon fas fa-user"></i>
+                    <input type="text" name="full_name" id="full_name" placeholder="Full Name" required
+                        onfocus="handleInputFocus(this)" onblur="handleInputBlur(this)">
+                </div>
+                <div class="form-field">
+                    <i class="icon fas fa-phone"></i>
+                    <input type="text" name="cell_no" id="cell_no" placeholder="Cell No" required
+                        onfocus="handleInputFocus(this)" onblur="handleInputBlur(this)">
+                </div>
+                <div class="form-field">
+                    <i class="icon fas fa-envelope"></i>
+                    <input type="email" name="email" id="email" placeholder="Email Address" required
+                        onfocus="handleInputFocus(this)" onblur="handleInputBlur(this)">
+                </div>
+                <div class="form-field">
+                    <i class="icon fas fa-lock"></i>
+                    <input type="password" name="password" id="password" placeholder="Password" required
+                        onfocus="handleInputFocus(this)" onblur="handleInputBlur(this)">
+                </div>
+                <div class="form-field">
+                    <i class="icon fas fa-lock"></i>
+                    <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm Password" required
+                        onfocus="handleInputFocus(this)" onblur="handleInputBlur(this)">
+                </div>
+                <select name="category" id="category" required>
+                    <option value="Researcher">Researcher</option>
+                    <option value="Common User">Common User</option>
+                    <!-- Add more options as needed -->
+                </select>
+                <input type="submit" value="Register">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

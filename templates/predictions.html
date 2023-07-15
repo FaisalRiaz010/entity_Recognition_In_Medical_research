@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>NER Result</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  	<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+	<style>
+		body {
+  background: linear-gradient(to right bottom, #173f5f, #1b4d6e, #1f5b7d, #22698c, #25779b, #2974ab, #2d71bb, #316ecc, #2e7ac1, #2a83b7, #258cae, #2095a5);
+}
+
+body::before {
+ 
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  bottom: -50px;
+  left: -50px;
+  background: radial-gradient(ellipse closest-side, rgba(255, 255, 255, 0.2), transparent 60%);
+  pointer-events: none;
+  animation: shining 2s ease-in-out infinite;
+}
+
+@keyframes shining {
+  0% {
+    transform: rotate(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(360deg) scale(1.5);
+    opacity: 0;
+  }
+}
+
+		.container {
+			display: flex;
+			flex-wrap: wrap;
+		}
+		.entity {
+			flex-basis: 25%;
+			padding: 5px;
+			margin: 5px;
+			background-color: transparent;
+			border-radius: 5px;
+			box-shadow: 2px 2px 5px rgb(238, 239, 240);
+		}
+		.entity-title {
+			font-weight: bold;
+			font-size: 1.2rem;
+			margin-bottom: 5px;
+			color: white;
+		}
+		.entity-type {
+			font-size: 1rem;
+			color: #eee4e4;
+		}
+		.tagged-text-container {
+		border: 2px solid rgb(236, 230, 230);
+		padding: 19px;
+		margin: 19px;
+		color: white;
+	}
+		
+
+	</style>
+</head>
+<body>
+	<header>
+		<nav class="navbar navbar-expand-lg navbar-dark shadow-5-strong">
+		  <div class="container-fluid">
+			<a class="navbar-brand" href="{{ url_for('index') }}">
+			  <img src="{{ url_for('static', filename='image/logo_-_Copy-removebg-preview.png') }}" alt="Logo" height="40">
+			</a>        
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+			  aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+			  <span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav" style="position: absolute; right:0">
+			  <ul class="navbar-nav ms-auto">
+				<li class="nav-item">
+				  <a class="nav-link active" aria-current="page" href="{{ url_for('index') }}">Home</a>
+				</li>
+				<li class="nav-item">
+				  <a class="nav-link" href="/search">Search</a>
+				</li>
+				<li class="nav-item">
+				  <a class="nav-link" href="#">About</a>
+				</li>
+			  </ul>
+			</div>
+		  </div>
+		</nav>
+	  </header>  
+	<h1 style="text-align: center; color: #ece8e8;">NER Result</h1>
+	<h2 style="text-align: center;color: white;">Entities</h2>
+	<div class="container">
+		{% for entity in entities %}
+			<div class="entity">
+				<div class="entity-title">{{ entity[0] }}</div>
+				<div class="entity-type">{{ entity[1] }}</div>
+			</div>
+		{% endfor %}
+	</div>
+	<h2 style="text-align: center; color: rgb(237, 237, 247);">Tagged Text</h2>
+	
+<div class="tagged-text-container">
+	{{ tagged_text|safe }}
+</div>
+</body>
+</html>
